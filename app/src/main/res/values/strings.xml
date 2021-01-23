@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">PokeContest</string>
     <string name="contentDescription">Pokemon image</string>
+    <string name="nombre_pokemon">Nombre:</string>
+    <string name="tipo_pokemon">Tipo:</string>
+    <string name="info_pokemon">Información</string>
 </resources>
