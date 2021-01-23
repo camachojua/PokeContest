@@ -1,4 +1,9 @@
 package com.example.pokecontest.listeners
 
-class PokemonListener {
+import com.example.pokecontest.models.Pokemon
+
+interface PokemonListener {
+    fun onClickPokemon(pokemon: Pokemon)
+
+    fun onInfoPokemon(pokemon: Pokemon)
 }
