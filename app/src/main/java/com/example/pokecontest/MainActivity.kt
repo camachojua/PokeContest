@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pokecontest.adapters.PokemonAdapter
 import com.example.pokecontest.listeners.PokemonListener
 import com.example.pokecontest.models.Pokemon
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), PokemonListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,15 +17,18 @@ class MainActivity : AppCompatActivity(), PokemonListener {
     }
 
     val pokemones = arrayListOf<Pokemon>(
-        Pokemon("mew", "Mew","Psíquico","Kanto", 50),
-        Pokemon("pichu","Pichu", "Eléctrico", "Jhotto", 2),
-        Pokemon("ponyta","Ponyta", "Hada", "Galar", 30),
-        Pokemon("leafon","Leafon","Planta","Jhotto", 24)
+        Pokemon(1, "Mew", "Psíquico", "Kanto", 50),
+        Pokemon(2, "Pichu", "Eléctrico", "Jhotto", 2),
+        Pokemon(3, "Ponyta", "Hada", "Galar", 30),
+        Pokemon(4, "Leafon", "Planta", "Jhotto", 24)
     )
 
     val pokemonAdapter: PokemonAdapter = PokemonAdapter(pokemones)
+    pokemonAdapter.setPokemonListener(this)
+    pokemonRecyclerView.adapter = pokemonAdapter
 
-    val layoutManager = LinearLayoutManager(baseContext, RecyclerView.VERTICAL,false)
+    val layoutManager = LinearLayoutManager(baseContext, RecyclerView.VERTICAL, false)
+    pokemonRecyclerView.layoutManager = layoutManager
 
 
     override fun onClickPokemon(pokemon: Pokemon) {
