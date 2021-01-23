@@ -8,7 +8,7 @@ import com.example.pokecontest.adapters.viewholders.PokemonViewHolder
 import com.example.pokecontest.listeners.PokemonListener
 import com.example.pokecontest.models.Pokemon
 
-class PokemonAdapter(private val pokemones: List<Pokemon>): RecyclerView.Adapter<PokemonViewHolder>() {
+class PokemonAdapter(val pokemones: List<Pokemon>): RecyclerView.Adapter<PokemonViewHolder>() {
     private var pokemonListener: PokemonListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
@@ -26,4 +26,7 @@ class PokemonAdapter(private val pokemones: List<Pokemon>): RecyclerView.Adapter
         return pokemones.size
     }
 
+    fun setPokemonListener(listener: PokemonListener?) {
+        this.pokemonListener = listener
+    }
 }

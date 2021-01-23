@@ -16,18 +16,15 @@ class MainActivity : AppCompatActivity(), PokemonListener {
     }
 
     val pokemones = arrayListOf<Pokemon>(
-        Pokemon(1, "Mew","Psíquico","Kanto", 50),
-        Pokemon(2,"Pichu", "Eléctrico", "Jhotto", 2),
-        Pokemon(3,"Ponyta", "Hada", "Galar", 30),
-        Pokemon(4,"Leafon","Planta","Jhotto", 24)
+        Pokemon("mew", "Mew","Psíquico","Kanto", 50),
+        Pokemon("pichu","Pichu", "Eléctrico", "Jhotto", 2),
+        Pokemon("ponyta","Ponyta", "Hada", "Galar", 30),
+        Pokemon("leafon","Leafon","Planta","Jhotto", 24)
     )
 
-    val adaptador = PokemonAdapter(pokemones)
-    adaptador.setPokemonListener(this)
-    recyclerView.adapter = adaptador
+    val pokemonAdapter: PokemonAdapter = PokemonAdapter(pokemones)
 
     val layoutManager = LinearLayoutManager(baseContext, RecyclerView.VERTICAL,false)
-    recyclerView.layoutManager = layoutManager
 
 
     override fun onClickPokemon(pokemon: Pokemon) {
