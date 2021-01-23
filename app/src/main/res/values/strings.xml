@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PokeContest</string>
+    <string name="contentDescription">Pokemon image</string>
 </resources>
