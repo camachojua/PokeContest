@@ -1,7 +1,10 @@
 package com.example.pokecontest
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.pokecontest.adapters.PokemonAdapter
 import com.example.pokecontest.listeners.PokemonListener
 import com.example.pokecontest.models.Pokemon
@@ -20,13 +23,19 @@ class MainActivity : AppCompatActivity(), PokemonListener {
     )
 
     val adaptador = PokemonAdapter(pokemones)
+    adaptador.setPokemonListener(this)
+    recyclerView.adapter = adaptador
+
+    val layoutManager = LinearLayoutManager(baseContext, RecyclerView.VERTICAL,false)
+    recyclerView.layoutManager = layoutManager
+
 
     override fun onClickPokemon(pokemon: Pokemon) {
-        TODO("Not yet implemented")
+        Toast.makeText(this, "Le dio clic a la vista", Toast.LENGTH_LONG).show()
     }
 
     override fun onInfoPokemon(pokemon: Pokemon) {
-        TODO("Not yet implemented")
+        Toast.makeText(this, "Le dio clic al botón", Toast.LENGTH_LONG).show()
     }
 
 
